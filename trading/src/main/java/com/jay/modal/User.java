@@ -6,7 +6,9 @@ import com.jay.domain.USER_ROLE;
 import jakarta.persistence.*;
 import lombok.Data;
 
+
 @Entity
+
 @Data
 
 public class User {
