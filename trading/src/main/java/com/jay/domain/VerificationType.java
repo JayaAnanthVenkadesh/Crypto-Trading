@@ -1,6 +1,6 @@
 package com.jay.domain;
 
 public enum VerificationType {
-    MOBILE,
-    EMAIL
+    MOBILE, //mobile number
+    EMAIL //e-mail address
 }
