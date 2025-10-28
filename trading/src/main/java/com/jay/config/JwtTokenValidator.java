@@ -31,7 +31,7 @@ public class JwtTokenValidator extends OncePerRequestFilter {
 
                 Claims claims= Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(jwt).getBody()
 
-                String email=String.valueof(claims.get('email'));
+                String email=String.valueOf()f(claims.get('email'));
 
                 String authorities=String.valueOf(claims.get("authorities"));
 
@@ -39,7 +39,7 @@ public class JwtTokenValidator extends OncePerRequestFilter {
 
                 Authentication auth=new UsernamePasswordAuthenticationToken(
                   email,
-                  authoritiesList,
+                  credentials: null,
                   authoritiesList
                 );
                 SecurityContextHolder.getContext().setAuthentication(auth);
