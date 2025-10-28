@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HomeController {
 
     @GetMapping
-    public String home() {
-        return "welcome to trading platform";
+    public String secure() {
+        return "welcome to trading platform secure";
     }
 }
