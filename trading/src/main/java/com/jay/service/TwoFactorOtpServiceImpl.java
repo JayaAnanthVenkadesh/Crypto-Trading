@@ -50,3 +50,4 @@ public class TwoFactorOtpServiceImpl implements TwoFactorotpService {
         twoFactorOtpRepository.delete(twoFactorOtp);
     }
 }
+
