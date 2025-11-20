@@ -8,9 +8,11 @@ import com.jay.repsitory.VerificationCodeRepository;
 public interface VerificationCodeService {
     VerificationCode sendVerificationCode(User user, VerificationType verificationType);
 
-    VerificationCode getVerificationCodeById(Long id);
+    VerificationCode getVerificationCodeById(Long id) throws Exception;
 
     VerificationCode getVerificationCodeByCode(Long userId);
 
     void deleteVerificationCodeById(VerificationCode verificationCode);
+
+
 }
