@@ -5,11 +5,17 @@ import com.jay.modal.ForgotPasswordToken;
 import com.jay.modal.User;
 
 
-public interface ForgotPassword {
+public interface ForgotPasswordService {
 
     ForgotPasswordToken createToken(User user,
                                     String id, String otp,
                                     VerificationType verificationType,
                                     String sendTo);
+
+    ForgotPasswordToken findByID(String id);
+
+    ForgotPasswordToken findByUser(Long userId);
+
+    void deleteToken(ForgotPasswordToken token);
 }
 
