@@ -93,19 +93,23 @@ public class UserController {
         @RequestHeader("Authorization") String jwt,
         @PathVariable VerificationType verificationType) throws Exception {
 
-        User user=userService.findUserProfileByJwt(jwt);
-        String otp= OtpUtils.generateOTP();
-        UUID uuid=UUID.randomUUID();
-        String id=uuid.toString();
+        User user = userService.findUserProfileByJwt(jwt);
+        String otp = OtpUtils.generateOTP();
+        UUID uuid = UUID.randomUUID();
+        String id = uuid.toString();
 
-        ForgotPasswordToken token=forgotPasswordService.findByUser(user.getId());
+        ForgotPasswordToken token = forgotPasswordService.findByUser(user.getId());
 
-        if(token==null){
-        ForgotPassworToken token=forgotPasswordService.findByUser(user.getId());
+        if (token == null) {
+            token = forgotPasswordService.createToken(user, id, otp, req.getVerificationType(), req.getSendTo());
+        }
+
+        if(req.getVerificationType().equals(VerificationType.EMAIL)){
+            emailService.sendVerificationOtpEmail(user.getEmail(),)
+        }
+
+        return new ResponseEntity<>(body:"forgot password otp sent successfully", HttpStatus.OK);
     }
-
-
-        return new ResponseEntity<>(body: "forgot password otp sent successfully", HttpStatus.OK);
-
 }
+
 
