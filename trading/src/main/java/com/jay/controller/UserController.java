@@ -77,7 +77,6 @@ public class UserController {
                 verificationCode.getEmail():verificationCode.getMobile();
 
         boolean isVerified=verificationCodeService.getOtp().equals(otp);
-
         if(isVerified){
             User updatedUser=userService.enableTwoFactorAuthentication(
                     verificationCode.getVerificationType(),sendTo,user);
